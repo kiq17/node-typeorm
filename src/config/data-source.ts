@@ -10,11 +10,11 @@ import { Subjects } from "../entities/Subjects";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "admin",
-    database: "typeorm",
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     synchronize: true,
     logging: true,
     entities: [Student, Course, Subjects], // migration:generate criar as migrations baseado nas entities passadas
